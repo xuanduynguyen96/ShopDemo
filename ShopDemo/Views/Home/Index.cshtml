@@ -1,0 +1,25 @@
+﻿@model ShopDemo.ViewModels.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @(Model.User.Name) with role @Model.User.Role</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    
+    <div class="d-flex flex-row gap-5">
+        @foreach (var item in Model.Items)
+        {
+            <vc:item-card info=@item />
+            @* <div class="d-flex flex-column">
+                <span><strong>Name: </strong>@item.Name</span>
+                <span><strong>Quanity: </strong>@item.Quantity</span>
+                <span><strong>Color: </strong>@item.Color</span>
+            </div> *@
+        }
+    </div>
+
+    @* @await Component.InvokeAsync("ItemCard") *@ @* Render view component with c# code *@
+    @* <vc:item-card /> *@ @* Render view component with tag helper *@
+</div>
